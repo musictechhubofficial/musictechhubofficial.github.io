@@ -1,80 +1,88 @@
-
 <!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chào mừng bạn đến với nhà của tui!</title>
-    
+    <title>Music Tech Hub</title>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: white;
-            text-align: center;
+        /* Toàn màn hình cho Website chính */
+        body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background: #000; }
+        iframe { width: 100%; height: 100%; border: none; }
+
+        /* Lớp phủ Quảng cáo (Overlay) */
+        #ads-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.95) 0%, rgba(118, 75, 162, 0.95) 100%);
+            display: flex; justify-content: center; align-items: center;
+            z-index: 9999; color: white; text-align: center;
+            font-family: 'Segoe UI', sans-serif;
         }
         .container {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 40px;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
-            max-width: 400px;
-            width: 90%;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 30px; border-radius: 20px; backdrop-filter: blur(15px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3); max-width: 380px; width: 85%;
         }
-        h1 { font-size: 24px; margin-bottom: 20px; }
-        p { font-size: 16px; line-height: 1.5; margin-bottom: 30px; opacity: 0.9; }
         .highlight { color: #f6ad55; font-weight: bold; font-size: 20px; }
-        
         #start-btn {
-            background: #48bb78;
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            font-size: 18px;
-            font-weight: bold;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: transform 0.2s, background 0.2s;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            text-decoration: none;
-            display: inline-block;
+            background: #48bb78; color: white; border: none; padding: 15px 30px;
+            font-size: 18px; font-weight: bold; border-radius: 50px; cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2); margin-top: 20px;
         }
-        #start-btn:hover {
-            background: #38a169;
-            transform: scale(1.05);
-        }
-        #start-btn:active { transform: scale(0.95); }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>🏠 Chào mừng bạn đến với nhà của tui nha!</h1>
-        <p>Bấm vào nút bên dưới để nhận <br> 
-           <span class="highlight">1024 GB DUNG LƯỢNG</span> <br>
-           lưu trữ tài liệu quan trọng, miễn phí vĩnh viễn.
-        </p>
+    <iframe id="main-site" src="https://sites.google.com/view/musictechhubofficial/home"></iframe>
 
-        <button id="start-btn">🎁 NHẬN MIỄN PHÍ NGAY</button>
+    <div id="ads-overlay">
+        <div class="container">
+            <h1>🏠 Chào mừng bạn đến với nhà của tui nha!</h1>
+            <p>Bấm vào nút bên dưới để nhận <br> 
+               <span class="highlight">1024 GB DUNG LƯỢNG</span> <br>
+               lưu trữ tài liệu quan trọng, miễn phí vĩnh viễn.
+            </p>
+
+            <div style="margin: 15px 0;">
+                <script async="async" data-cfasync="false" src="https://pl28583982.effectivegatecpm.com/d44fe2243e527b84ce023f7ae04a32a2/invoke.js"></script>
+                <div id="container-d44fe2243e527b84ce023f7ae04a32a2"></div>
+            </div>
+
+            <button id="start-btn">🎁 NHẬN MIỄN PHÍ NGAY</button>
+        </div>
     </div>
 
     <script>
+        const overlay = document.getElementById('ads-overlay');
+        const iframe = document.getElementById('main-site');
+        const googleBase = "https://sites.google.com/view/musictechhubofficial";
+
+        // Xử lý logic hiển thị
+        function init() {
+            const params = new URLSearchParams(window.location.search);
+            const p = params.get('p');
+
+            if (p) {
+                // Nếu bấm từ Menu (có ?p=), hiện quảng cáo
+                overlay.style.display = 'flex';
+                const paths = { "music": "/music-reflections", "bag": "/whats-in-the-bag", "tech": "/tech-lifestyle", "income": "/income-hub" };
+                iframe.src = googleBase + (paths[p] || "/home");
+            } else {
+                // Nếu vào trang chủ trực tiếp, ẩn quảng cáo đi để thấy website luôn
+                overlay.style.display = 'none';
+            }
+        }
+
         document.getElementById('start-btn').onclick = function() {
-            // Khi người dùng bấm nút:
-            // 1. Script quảng cáo (đã dán ở trên) sẽ tự động mở tab Pop-under ngầm.
-            
-            // 2. Tab hiện tại chuyển hướng sang Google Sites sau 300ms để đảm bảo Ads kịp chạy
-            setTimeout(function() {
-                window.location.href = "URL_TRANG_GOOGLE_SITES_CỦA_BẠN";
-            }, 300);
+            // Khi bấm nút: Ẩn quảng cáo đi để hiện ra website bên dưới
+            overlay.style.opacity = '0';
+            setTimeout(() => { 
+                overlay.style.display = 'none';
+                // Xóa tham số URL để thanh địa chỉ đẹp hơn
+                window.history.replaceState({}, document.title, "/");
+            }, 500);
         };
+
+        window.onload = init;
     </script>
 
 </body>
