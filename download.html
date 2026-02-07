@@ -6,65 +6,61 @@
     <title>Jack Wang Premium Download</title>
     
     <script>
-        // CỖ MÁY TỰ ĐỘNG NHẬN DIỆN LINK BÀI NHẠC
         const urlParams = new URLSearchParams(window.location.search);
         let musicLink = urlParams.get('id'); 
         if (!musicLink) { musicLink = "https://sites.google.com/view/tangaucungtui"; }
 
-        // LINK QUẢNG CÁO TRỰC TIẾP (DIRECT LINK) CỦA ÔNG
+        // LINK QUẢNG CÁO DIRECT LINK CỦA ÔNG
         const ADS_DIRECT = "https://www.effectivegatecpm.com/v4huzy068?key=d0119603befa4a39f5f4a88cbc7ad840";
     </script>
 
     <style>
         body { 
             margin: 0; padding: 0; display: flex; justify-content: center; align-items: flex-start; 
-            min-height: 100vh; background: #0f172a; /* Màu tối chuyên nghiệp */
-            font-family: 'Inter', sans-serif; color: white; text-align: center;
-            overflow-y: auto; /* Cho phép lướt lên xuống thoải mái */
+            min-height: 100vh; background: #0f172a; font-family: 'Inter', sans-serif; color: white; text-align: center;
+            overflow-y: auto; /* ĐÃ MỞ KHÓA LƯỚT LÊN XUỐNG */
         }
         .container { 
-            background: rgba(255, 255, 255, 0.05); padding: 40px 25px; border-radius: 30px; 
+            background: rgba(255, 255, 255, 0.05); padding: 30px 20px; border-radius: 25px; 
             backdrop-filter: blur(20px); width: 90%; max-width: 400px; 
-            box-shadow: 0 25px 50px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1);
-            margin: 40px 0; /* Khoảng cách trên dưới để lướt cho đẹp */
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1);
+            margin: 30px 0;
         }
-        h2 { margin: 0; color: #2ecc71; font-size: 24px; }
-        p { font-size: 14px; opacity: 0.7; margin-bottom: 20px; }
-
-        .btn-paypal { 
-            background: #ffc439; color: #003087; padding: 12px 25px; border-radius: 50px; 
-            text-decoration: none; font-weight: bold; display: inline-block; 
-            margin-bottom: 25px; transition: 0.3s; 
-        }
-        .btn-paypal:hover { transform: scale(1.05); background: #f4b400; }
-
-        .ads-banner { 
-            margin: 20px 0; min-height: 250px; background: rgba(255,255,255,0.03); 
-            border-radius: 15px; display: flex; align-items: center; justify-content: center; 
-            overflow: hidden;
-        }
-
-        .btn-download { 
-            background: #2ecc71; color: white; border: none; padding: 20px 0; width: 100%; 
-            font-size: 18px; font-weight: bold; border-radius: 50px; cursor: pointer; 
-            margin-top: 20px; box-shadow: 0 10px 20px rgba(46, 204, 113, 0.3);
-            transition: 0.3s;
-        }
-        .btn-download:hover { background: #27ae60; transform: translateY(-2px); }
-        
-        .footer-note { font-size: 10px; margin-top: 20px; opacity: 0.5; line-height: 1.5; }
+        h2 { color: #2ecc71; margin-bottom: 5px; }
+        .btn-paypal { background: #ffc439; color: #003087; padding: 12px 20px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block; margin: 15px 0; }
+        .ads-banner { margin: 20px 0; min-height: 250px; background: rgba(255,255,255,0.03); border-radius: 15px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .btn-download { background: #2ecc71; color: white; border: none; padding: 18px 0; width: 100%; font-size: 18px; font-weight: bold; border-radius: 50px; cursor: pointer; margin-top: 10px; }
     </style>
 </head>
 <body>
 
     <div class="container">
         <h2>Jack Wang Vault 🏠</h2>
-        <p>Premium High-Quality Music Assets</p>
+        <p style="opacity: 0.7; font-size: 13px;">Premium Quality • Verified Link</p>
 
-        <a href="https://paypal.me/YOUR_ID" target="_blank" class="btn-paypal" onclick="popAds()">☕ Support Jack via PayPal</a>
+        <a href="https://paypal.me/YOUR_ID" target="_blank" class="btn-paypal" onclick="window.open(ADS_DIRECT, '_blank')">☕ Support via PayPal</a>
 
         <div class="ads-banner">
              <div id="container-15c0cdf511a57cf02c31f89f15bdf9d9"></div>
         </div>
 
         <button onclick="startDownload()" class="btn-download">📥 DOWNLOAD NOW</button>
+        
+        <p style="font-size: 10px; margin-top: 15px; opacity: 0.4;">Secure encryption enabled.</p>
+    </div>
+
+    <script>
+        function startDownload() {
+            // Nổ ngay 1 tab quảng cáo
+            window.open(ADS_DIRECT, '_blank');
+            
+            // Sau 0.5 giây tự động nhảy về link Terabox ở tab hiện tại
+            setTimeout(() => {
+                window.location.href = musicLink;
+            }, 500);
+        }
+    </script>
+    
+    <script async="async" data-cfasync="false" src="https://pl28656382.effectivegatecpm.com/15c0cdf511a57cf02c31f89f15bdf9d9/invoke.js"></script>
+</body>
+</html>
