@@ -1,17 +1,60 @@
-<div id="pay-zone">
-    <h2>Treat me a coffee</h2>
-    <a href="https://discoverywithme.github.io/?status=success" style="padding:20px; background:blue; color:white; display:block; text-align:center;">GIẢ LẬP THANH TOÁN XONG (BẤM ĐỂ TEST)</a>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIP Download - Jack Wang</title>
+    <style>
+        body { background: #1a365d; color: white; font-family: sans-serif; text-align: center; padding-top: 50px; }
+        .box { max-width: 400px; margin: auto; background: rgba(255,255,255,0.1); padding: 30px; border-radius: 20px; }
+        input { width: 80%; padding: 15px; margin: 20px 0; border-radius: 10px; border: none; font-size: 20px; text-align: center; }
+        button { background: #28a745; color: white; border: none; padding: 15px 30px; border-radius: 50px; cursor: pointer; font-weight: bold; }
+        #link-area { display: none; margin-top: 20px; padding: 20px; border: 2px solid #68d391; border-radius: 10px; }
+        .error { color: #ff6b6b; display: none; }
+    </style>
+</head>
+<body>
 
-<div id="pass-zone" style="display:none; text-align:center; padding:50px;">
-    <h1>CODE: ABCD</h1>
-    <button onclick="window.location.href='downloadmusic$.html'">GO TO DOWNLOAD</button>
+<div class="box">
+    <h2>🔐 Enter Password</h2>
+    <p>Please enter the code ABCD to unlock link</p>
+    
+    <div id="err" class="error">Incorrect Password!</div>
+    
+    <input type="text" id="pass" placeholder="Enter Code Here">
+    <br>
+    <button onclick="verify()">UNLOCK DOWNLOAD LINK</button>
+
+    <div id="link-area">
+        <h3 style="color: #68d391;">SUCCESS!</h3>
+        <a id="download-link" href="https://1024terabox.com/s/1_XPau_RB1qXG3W1pvGyX2g" target="_blank" style="color: yellow; font-weight: bold; font-size: 18px;">
+            👉 CLICK HERE TO DOWNLOAD NOW
+        </a>
+    </div>
 </div>
 
 <script>
-    // Lệnh này cực đơn giản, không thể sai được
-    if (window.location.search.includes('status=success')) {
-        document.getElementById('pay-zone').style.display = 'none';
-        document.getElementById('pass-zone').style.display = 'block';
+    function verify() {
+        var input = document.getElementById('pass').value.trim().toUpperCase();
+        var error = document.getElementById('err');
+        var area = document.getElementById('link-area');
+
+        if (input === 'ABCD') {
+            // Nếu đúng mã ABCD thì hiện link
+            error.style.display = 'none';
+            area.style.display = 'block';
+            
+            // Tự động chuyển hướng sang Terabox sau 2 giây
+            setTimeout(function() {
+                window.location.href = "https://1024terabox.com/s/1_XPau_RB1qXG3W1pvGyX2g";
+            }, 2000);
+        } else {
+            // Nếu sai thì báo lỗi
+            error.style.display = 'block';
+            area.style.display = 'none';
+        }
     }
 </script>
+
+</body>
+</html>
