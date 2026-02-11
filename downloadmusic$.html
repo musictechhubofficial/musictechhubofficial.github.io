@@ -84,11 +84,16 @@
         el.style.borderColor = "#63b3ed";
     }
 
-    // Tự động hiện mã khi PayPal trả về thành công
-    if (window.location.search.indexOf('status=success') > -1) {
-        document.getElementById('pay-zone').style.display = 'none';
-        document.getElementById('pass-zone').style.display = 'block';
-        window.scrollTo(0,0);
-    }
+    // Tự động hiện mã mật khẩu khi có biến status=success trên link
+    window.addEventListener('load', function() {
+        if (window.location.search.indexOf('status=success') > -1) {
+            var pZone = document.getElementById('pay-zone');
+            var sZone = document.getElementById('pass-zone');
+            if(pZone && sZone) {
+                pZone.style.display = 'none';
+                sZone.style.display = 'block';
+                window.scrollTo(0,0);
+            }
+        }
+    });
 </script>
-
