@@ -1,1 +1,77 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jack Wang Vault - Premium Music & Apps</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f4f7f6; margin: 0; padding: 0; color: #333; }
+        .container { max-width: 600px; margin: 20px auto; background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .header { background: #2c3e50; color: white; padding: 30px 20px; text-align: center; }
+        .header h1 { margin: 0; font-size: 24px; }
+        .content { padding: 20px; text-align: center; }
+        
+        /* Box PayPal VIP */
+        .vip-card { border: 2px solid #0070ba; background: #f0faff; border-radius: 15px; padding: 20px; margin-bottom: 25px; position: relative; }
+        .vip-tag { position: absolute; top: -12px; right: 20px; background: #e74c3c; color: white; padding: 2px 10px; border-radius: 10px; font-size: 12px; font-weight: bold; }
+        .btn-paypal { background: #0070ba; color: white; border: none; padding: 15px 30px; border-radius: 30px; font-size: 18px; font-weight: bold; cursor: pointer; width: 100%; transition: 0.3s; box-shadow: 0 4px 10px rgba(0,112,186,0.3); }
+        .btn-paypal:hover { background: #005ea6; transform: translateY(-2px); }
 
+        /* Link Download Thường */
+        .free-download { margin-top: 20px; padding: 15px; border: 1px solid #ddd; border-radius: 10px; background: #fff; }
+        .btn-free { color: #27ae60; text-decoration: none; font-weight: bold; font-size: 16px; }
+
+        /* Chỗ cho Adsterra */
+        .ads-box { margin: 20px 0; min-height: 100px; background: #eee; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #999; font-size: 12px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>JACK WANG VAULT</h1>
+        <p>Premium Instrumental & Tech Resources</p>
+    </div>
+
+    <div class="content">
+        <div class="vip-card">
+            <div class="vip-tag">RECOMMENDED</div>
+            <h3 style="color: #003087; margin-top: 0;">🔓 Unlock Password (1$)</h3>
+            <p style="font-size: 14px; color: #555;">Get instant password for Terabox + High Quality Music + No Ads.</p>
+            
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+                <input type="hidden" name="business" value="ninnhanwang@gmail.com">
+                <input type="hidden" name="cmd" value="_xclick">
+                <input type="hidden" name="item_name" value="VIP Password Access - Jack Wang">
+                <input type="hidden" name="amount" value="1.00">
+                <input type="hidden" name="currency_code" value="USD">
+                <input type="hidden" name="return" value="https://tangaucungtui.github.io/thanks.html">
+                
+                <button type="submit" class="btn-paypal">GET PASSWORD NOW</button>
+            </form>
+            <p style="font-size: 11px; margin-top: 10px; color: #777;">*Click <b>"Return to Merchant"</b> after payment to see code.*</p>
+        </div>
+
+        <div class="ads-box">
+            ADSTERRA ADS PLACEHOLDER
+        </div>
+
+        <div class="free-download">
+            <p style="margin-bottom: 10px; font-size: 14px; color: #666;">Already have the password?</p>
+            <a href="LINK_TERABOX_CUA_ONG" target="_blank" class="btn-free">
+                📥 Download from Terabox
+            </a>
+        </div>
+
+        <div class="ads-box">
+             ADSTERRA ADS PLACEHOLDER
+        </div>
+    </div>
+
+    <div style="text-align: center; padding-bottom: 20px; font-size: 12px; color: #999;">
+        © 2026 Jack Wang - Discovery With Me
+    </div>
+</div>
+
+</body>
+</html>
