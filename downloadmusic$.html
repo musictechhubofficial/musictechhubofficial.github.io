@@ -22,7 +22,7 @@
                 <div onclick="setPrice(5, this)" style="background: rgba(255,255,255,0.1); color: #fff; padding: 15px; border-radius: 15px; cursor: pointer; flex: 1; font-weight: bold; border: 2px solid transparent; font-size: 18px;" class="p-btn">5 ☕</div>
             </div>
 
-            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
                 <input type="hidden" name="business" value="jackwang1368@gmail.com">
                 <input type="hidden" name="cmd" value="_xclick">
                 <input type="hidden" name="item_name" value="Voluntary Gift - Jack Wang Music">
@@ -55,10 +55,16 @@
             <div style="font-size: clamp(30px, 8vw, 45px); color: #ffffff; font-weight: bold; background: rgba(255,255,255,0.05); padding: 25px; border-radius: 20px; border: 3px dashed #63b3ed; letter-spacing: 5px; margin: 20px 0;">
                 ABCD
             </div>
-            <p style="font-size: 14px; opacity: 0.8; line-height: 1.5;">
-                Copy the code above and use it on the Terabox link.<br>
+            <p style="font-size: 14px; opacity: 0.8; line-height: 1.5; margin-bottom: 30px;">
+                Copy the code above and click the button below to download.<br>
                 <b>Don't forget to save it!</b>
             </p>
+
+            <a href="downloadmusic$.html?id=https://1024terabox.com/s/1_XPau_RB1qXG3W1pvGyX2g" style="text-decoration: none;">
+                <button style="background: #28a745; color: white; border: none; padding: 18px 40px; border-radius: 50px; cursor: pointer; font-weight: bold; font-size: 20px; width: 100%; box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+                    DOWNLOAD MUSIC NOW 📥
+                </button>
+            </a>
         </div>
 
     </div>
@@ -78,6 +84,7 @@
         el.style.borderColor = "#63b3ed";
     }
 
+    // Tự động hiện mã khi PayPal trả về thành công
     if (window.location.search.indexOf('status=success') > -1) {
         document.getElementById('pay-zone').style.display = 'none';
         document.getElementById('pass-zone').style.display = 'block';
