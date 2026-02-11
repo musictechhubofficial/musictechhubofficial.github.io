@@ -3,58 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VIP Download - Jack Wang</title>
+    <title>VIP Access - Discovery With Me</title>
     <style>
-        body { background: #1a365d; color: white; font-family: sans-serif; text-align: center; padding-top: 50px; }
-        .box { max-width: 400px; margin: auto; background: rgba(255,255,255,0.1); padding: 30px; border-radius: 20px; }
-        input { width: 80%; padding: 15px; margin: 20px 0; border-radius: 10px; border: none; font-size: 20px; text-align: center; }
-        button { background: #28a745; color: white; border: none; padding: 15px 30px; border-radius: 50px; cursor: pointer; font-weight: bold; }
-        #link-area { display: none; margin-top: 20px; padding: 20px; border: 2px solid #68d391; border-radius: 10px; }
-        .error { color: #ff6b6b; display: none; }
+        body { 
+            background: #1a365d; 
+            color: white; 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            min-height: 100vh; 
+            margin: 0; 
+        }
+        .unlock-box { 
+            background: rgba(255, 255, 255, 0.08); 
+            padding: 40px 25px; 
+            border-radius: 25px; 
+            text-align: center; 
+            width: 90%; 
+            max-width: 400px; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4); 
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        input { 
+            width: 80%; 
+            padding: 15px; 
+            margin: 20px 0; 
+            border-radius: 12px; 
+            border: none; 
+            font-size: 22px; 
+            text-align: center; 
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            outline: none;
+            color: #1a365d;
+            font-weight: bold;
+        }
+        button { 
+            background: #28a745; 
+            color: white; 
+            border: none; 
+            padding: 18px 30px; 
+            border-radius: 50px; 
+            cursor: pointer; 
+            font-weight: bold; 
+            font-size: 18px; 
+            width: 100%;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3);
+        }
+        button:hover { background: #218838; transform: translateY(-2px); }
+        #link-status { 
+            display: none; 
+            margin-top: 25px; 
+            padding: 15px; 
+            background: rgba(104, 211, 145, 0.15); 
+            border: 1px dashed #68d391; 
+            border-radius: 15px; 
+        }
     </style>
 </head>
 <body>
 
-<div class="box">
-    <h2>🔐 Enter Password</h2>
-    <p>Please enter the code ABCD to unlock link</p>
+<div class="unlock-box">
+    <div style="font-size: 60px; margin-bottom: 10px;">🔐</div>
+    <h2 style="margin: 0;">Unlock VIP Link</h2>
+    <p style="opacity: 0.7; font-size: 14px; margin-top: 10px;">Enter your 4-digit code to access the music folder</p>
     
-    <div id="err" class="error">Incorrect Password!</div>
-    
-    <input type="text" id="pass" placeholder="Enter Code Here">
+    <input type="text" id="passCode" placeholder="CODE" maxlength="4">
     <br>
-    <button onclick="verify()">UNLOCK DOWNLOAD LINK</button>
+    <button onclick="checkAccess()">UNLOCK NOW</button>
 
-    <div id="link-area">
-        <h3 style="color: #68d391;">SUCCESS!</h3>
-        <a id="download-link" href="https://1024terabox.com/s/1_XPau_RB1qXG3W1pvGyX2g" target="_blank" style="color: yellow; font-weight: bold; font-size: 18px;">
-            👉 CLICK HERE TO DOWNLOAD NOW
+    <div id="link-status">
+        <p style="color: #68d391; font-weight: bold; margin: 0 0 10px 0;">✅ SUCCESS! REDIRECTING...</p>
+        <a id="finalLink" href="https://1024terabox.com/s/1_XPau_RB1qXG3W1pvGyX2g" target="_blank" style="color: #f1c40f; text-decoration: underline;">
+            Click here if not redirected automatically
         </a>
     </div>
 </div>
 
 <script>
-    function verify() {
-        var input = document.getElementById('pass').value.trim().toUpperCase();
-        var error = document.getElementById('err');
-        var area = document.getElementById('link-area');
-
-        if (input === 'ABCD') {
-            // Nếu đúng mã ABCD thì hiện link
-            error.style.display = 'none';
-            area.style.display = 'block';
-            
-            // Tự động chuyển hướng sang Terabox sau 2 giây
+    function checkAccess() {
+        var code = document.getElementById('passCode').value.trim().toUpperCase();
+        var status = document.getElementById('link-status');
+        
+        if (code === 'ABCD') {
+            status.style.display = 'block';
+            // Tự động chuyển trang sau 1.5 giây
             setTimeout(function() {
                 window.location.href = "https://1024terabox.com/s/1_XPau_RB1qXG3W1pvGyX2g";
-            }, 2000);
+            }, 1500);
         } else {
-            // Nếu sai thì báo lỗi
-            error.style.display = 'block';
-            area.style.display = 'none';
+            alert("Wrong password! Please check the code you received.");
         }
     }
-</script>
-
-</body>
-</html>
