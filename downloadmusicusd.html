@@ -3,100 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enter Password - Discovery With Me</title>
-    <style>
-        /* Màu nền xanh đậm y hệt trong ảnh */
-        body { 
-            background-color: #1a365d; 
-            margin: 0; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            height: 100vh; 
-            font-family: sans-serif;
-        }
-
-        /* Khung bo góc màu xanh nhạt hơn một chút */
-        .card {
-            background-color: #2c4a7c;
-            width: 90%;
-            max-width: 400px;
-            padding: 40px 20px;
-            border-radius: 30px;
-            text-align: center;
-            color: white;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-        }
-
-        h2 { margin: 15px 0; font-size: 24px; display: flex; align-items: center; justify-content: center; gap: 10px; }
-
-        p { font-size: 15px; opacity: 0.9; line-height: 1.4; margin-bottom: 25px; }
-
-        /* Ô nhập liệu màu trắng */
-        input {
-            width: 85%;
-            padding: 18px 0;
-            border-radius: 15px;
-            border: none;
-            font-size: 20px;
-            text-align: center;
-            margin-bottom: 20px;
-            color: #333;
-            outline: none;
-        }
-
-        /* Nút bấm màu xanh lá y chang ảnh */
-        .btn-unlock {
-            background-color: #28a745;
-            color: white;
-            border: none;
-            width: 85%;
-            padding: 15px 0;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 16px;
-            cursor: pointer;
-            text-transform: uppercase;
-        }
-
-        /* Khu vực hiện link sau khi nhập đúng */
-        #success-area {
-            display: none;
-            margin-top: 20px;
-            color: #ffeb3b;
-            font-weight: bold;
-        }
-    </style>
+    <title>Discovery With Me - Music Access</title>
 </head>
-<body>
+<body style="margin: 0; padding: 0; background: #1a365d;">
 
-<div class="card">
-    <h2>🔐 Enter Password</h2>
-    <p>Please enter the code ABCD to unlock<br>link</p>
+<div id="unlock-container" style="width: 100%; min-height: 100vh; background: #1a365d; color: #ffffff; font-family: 'Segoe UI', Arial, sans-serif; display: flex; flex-direction: column; align-items: center; padding: 40px 15px; box-sizing: border-box; margin: 0 auto;">
     
-    <input type="text" id="passInput" placeholder="Enter Code Here">
-    
-    <button class="btn-unlock" onclick="checkPassword()">UNLOCK DOWNLOAD LINK</button>
+    <div style="max-width: 550px; width: 100%; text-align: center;">
+        
+        <div id="pay-zone">
+            <div style="font-size: 60px; margin-bottom: 10px;">☕</div>
+            <h3 style="color: #63b3ed; font-size: clamp(24px, 5vw, 32px); text-transform: uppercase; margin: 0; letter-spacing: 2px;">Treat me a coffee?</h3>
+            <p style="font-size: 16px; opacity: 0.8; margin: 15px 0 30px 0;">Your gift unlocks the Password & VIP Link</p>
 
-    <div id="success-area">
-        <p>✅ SUCCESS! REDIRECTING...</p>
-        <a id="downloadLink" href="https://1024terabox.com/s/1_XPau_RB1qXG3W1pvGyX2g" target="_blank" style="color: #ffeb3b;">Click here if not redirected</a>
+            <div style="text-align: left; background: rgba(255, 255, 255, 0.1); border-left: 5px solid #63b3ed; padding: 20px; border-radius: 12px; margin-bottom: 30px; font-size: 14px; line-height: 1.8;">
+                <b style="color: #63b3ed; font-size: 16px;">How it works:</b><br>
+                1️⃣ Choose your gift amount ($1, $3, or $5).<br>
+                2️⃣ Complete payment via <b>PayPal</b>.<br>
+                3️⃣ Click <b>"Return to Merchant"</b> to see the code.<br>
+                4️⃣ <span style="color: #f1c40f; font-weight: bold;">Save the password carefully</span> for downloading.
+            </div>
+
+            <p style="font-size: 13px; color: #cbd5e0; margin-bottom: 15px;">Select your gift level:</p>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 35px; gap: 10px;">
+                <div onclick="setPrice(1, this)" style="background: #3182ce; color: #fff; padding: 15px; border-radius: 15px; cursor: pointer; flex: 1; font-weight: bold; border: 2px solid #63b3ed; font-size: 18px;" class="p-btn">1 ☕</div>
+                <div onclick="setPrice(3, this)" style="background: rgba(255,255,255,0.1); color: #fff; padding: 15px; border-radius: 15px; cursor: pointer; flex: 1; font-weight: bold; border: 2px solid transparent; font-size: 18px;" class="p-btn">3 ☕</div>
+                <div onclick="setPrice(5, this)" style="background: rgba(255,255,255,0.1); color: #fff; padding: 15px; border-radius: 15px; cursor: pointer; flex: 1; font-weight: bold; border: 2px solid transparent; font-size: 18px;" class="p-btn">5 ☕</div>
+            </div>
+
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                <input type="hidden" name="business" value="jackwang1368@gmail.com">
+                <input type="hidden" name="cmd" value="_xclick">
+                <input type="hidden" name="item_name" value="Voluntary Gift - Jack Wang Music">
+                <input type="hidden" name="amount" id="pp-amount" value="1.00">
+                <input type="hidden" name="currency_code" value="USD">
+                <input type="hidden" name="return" value="https://discoverywithme.github.io/?status=success">
+
+                <button type="submit" onclick="window.open('https://www.effectivegatecpm.com/v4huzy068?key=d0119603befa4a39f5f4a88cbc7ad840', '_blank')" 
+                    style="background: #3182ce; color: #ffffff; border: none; padding: 18px; border-radius: 50px; font-weight: bold; cursor: pointer; width: 100%; font-size: 18px; box-shadow: 0 8px 20px rgba(0,0,0,0.3);">
+                    GIFT $<span id="disp-amt">1</span> & GET CODE
+                </button>
+            </form>
+
+            <div style="margin-top: 30px; min-height: 250px;">
+                <script async="async" data-cfasync="false" src="https://pl28656257.effectivegatecpm.com/442052dd5360102cf8626b2c3d145b85/invoke.js"></script>
+                <div id="container-442052dd5360102cf8626b2c3d145b85"></div>
+            </div>
+
+            <div style="font-size: 11px; color: #a0aec0; text-align: left; margin-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; line-height: 1.5;">
+                <b>Note:</b> Please save your password after payment. We do not provide password recovery.<br><br>
+                <b>Disclaimer:</b> This gift is 100% voluntary. No refunds. Music is provided under CC BY license.<br><br>
+                <b>Contact:</b> jackwang1368@gmail.com
+            </div>
+        </div>
+
+        <div id="pass-zone" style="display: none; padding: 40px 0;">
+            <div style="font-size: 80px;">🎊</div>
+            <h3 style="color: #68d391;">Thank you so much!</h3>
+            <p style="font-size: 18px; color: #f1c40f; font-weight: bold;">PLEASE SAVE THIS PASSWORD:</p>
+            <div style="font-size: clamp(30px, 8vw, 45px); color: #ffffff; font-weight: bold; background: rgba(255,255,255,0.05); padding: 25px; border-radius: 20px; border: 3px dashed #63b3ed; letter-spacing: 5px; margin: 20px 0;">
+                ABCD
+            </div>
+            <p style="font-size: 14px; opacity: 0.8; line-height: 1.5; margin-bottom: 30px;">
+                Copy the code above and click the button below to download.<br>
+                <b>Don't forget to save it!</b>
+            </p>
+
+            <a href="downloadmusicusd.html" style="text-decoration: none;">
+                <button style="background: #28a745; color: white; border: none; padding: 18px 40px; border-radius: 50px; cursor: pointer; font-weight: bold; font-size: 20px; width: 100%; box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+                    DOWNLOAD MUSIC NOW 📥
+                </button>
+            </a>
+        </div>
+
     </div>
 </div>
 
 <script>
-    function checkPassword() {
-        var code = document.getElementById('passInput').value.trim().toUpperCase();
-        if (code === 'ABCD') {
-            document.getElementById('success-area').style.display = 'block';
-            // Tự động nhảy sang Terabox sau 1.5 giây
-            setTimeout(function() {
-                window.location.href = "https://1024terabox.com/s/1_XPau_RB1qXG3W1pvGyX2g";
-            }, 1500);
-        } else {
-            alert("Wrong password!");
+    // Hàm xử lý chọn giá tiền
+    function setPrice(amt, el) {
+        document.getElementById('pp-amount').value = amt + ".00";
+        document.getElementById('disp-amt').innerText = amt;
+        
+        var btns = document.getElementsByClassName('p-btn');
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].style.background = "rgba(255,255,255,0.1)";
+            btns[i].style.borderColor = "transparent";
+        }
+        el.style.background = "#3182ce";
+        el.style.borderColor = "#63b3ed";
+    }
+
+    // Hàm tự động kiểm tra trạng thái thanh toán từ URL
+    function checkPaymentStatus() {
+        if (window.location.search.indexOf('status=success') > -1) {
+            var pZone = document.getElementById('pay-zone');
+            var sZone = document.getElementById('pass-zone');
+            if (pZone && sZone) {
+                pZone.style.display = 'none';
+                sZone.style.display = 'block';
+                window.scrollTo(0,0);
+            }
         }
     }
+
+    // Chạy kiểm tra ngay khi trang web đã tải xong
+    window.onload = checkPaymentStatus;
 </script>
 
 </body>
