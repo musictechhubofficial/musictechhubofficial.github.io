@@ -1,22 +1,22 @@
-<div id="unlock-container" style="width: 100vw; min-height: 100vh; background: #1a365d; color: #ffffff; font-family: 'Segoe UI', Arial, sans-serif; display: flex; flex-direction: column; align-items: center; padding: 40px 20px; box-sizing: border-box; margin-left: calc(-50vw + 50%);">
+<div id="unlock-container" style="width: 100%; min-height: 100vh; background: #1a365d; color: #ffffff; font-family: 'Segoe UI', Arial, sans-serif; display: flex; flex-direction: column; align-items: center; padding: 40px 15px; box-sizing: border-box; margin: 0 auto;">
     
-    <div style="max-width: 500px; width: 100%; text-align: center;">
+    <div style="max-width: 550px; width: 100%; text-align: center;">
         
         <div id="pay-zone">
-            <div style="font-size: 80px; margin-bottom: 10px;">☕</div>
-            <h3 style="color: #63b3ed; font-size: 30px; text-transform: uppercase; margin: 0; letter-spacing: 2px;">Treat me a coffee?</h3>
+            <div style="font-size: 60px; margin-bottom: 10px;">☕</div>
+            <h3 style="color: #63b3ed; font-size: clamp(24px, 5vw, 32px); text-transform: uppercase; margin: 0; letter-spacing: 2px;">Treat me a coffee?</h3>
             <p style="font-size: 16px; opacity: 0.8; margin: 15px 0 30px 0;">Your gift unlocks the Password & VIP Link</p>
 
             <div style="text-align: left; background: rgba(255, 255, 255, 0.1); border-left: 5px solid #63b3ed; padding: 20px; border-radius: 12px; margin-bottom: 30px; font-size: 14px; line-height: 1.8;">
                 <b style="color: #63b3ed; font-size: 16px;">How it works:</b><br>
-                1️⃣ Choose the amount of coffee ($1, $3, or $5).<br>
-                2️⃣ Complete your gift via <b>PayPal</b>.<br>
+                1️⃣ Choose your gift amount ($1, $3, or $5).<br>
+                2️⃣ Complete payment via <b>PayPal</b>.<br>
                 3️⃣ Click <b>"Return to Merchant"</b> to see the code.<br>
-                4️⃣ The password will appear here instantly.
+                4️⃣ <span style="color: #f1c40f; font-weight: bold;">Save the password carefully</span> for downloading.
             </div>
 
             <p style="font-size: 13px; color: #cbd5e0; margin-bottom: 15px;">Select your gift level:</p>
-            <div style="display: flex; justify-content: space-around; margin-bottom: 35px; gap: 10px;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 35px; gap: 10px;">
                 <div onclick="setPrice(1, this)" style="background: #3182ce; color: #fff; padding: 15px; border-radius: 15px; cursor: pointer; flex: 1; font-weight: bold; border: 2px solid #63b3ed; font-size: 18px;" class="p-btn">1 ☕</div>
                 <div onclick="setPrice(3, this)" style="background: rgba(255,255,255,0.1); color: #fff; padding: 15px; border-radius: 15px; cursor: pointer; flex: 1; font-weight: bold; border: 2px solid transparent; font-size: 18px;" class="p-btn">3 ☕</div>
                 <div onclick="setPrice(5, this)" style="background: rgba(255,255,255,0.1); color: #fff; padding: 15px; border-radius: 15px; cursor: pointer; flex: 1; font-weight: bold; border: 2px solid transparent; font-size: 18px;" class="p-btn">5 ☕</div>
@@ -31,14 +31,14 @@
                 <input type="hidden" name="return" value="https://discoverywithme.github.io/?status=success">
 
                 <button type="submit" onclick="window.open('https://www.effectivegatecpm.com/v4huzy068?key=d0119603befa4a39f5f4a88cbc7ad840', '_blank')" 
-                    style="background: #3182ce; color: #ffffff; border: none; padding: 20px; border-radius: 50px; font-weight: bold; cursor: pointer; width: 100%; font-size: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.3);">
+                    style="background: #3182ce; color: #ffffff; border: none; padding: 18px; border-radius: 50px; font-weight: bold; cursor: pointer; width: 100%; font-size: 18px; box-shadow: 0 8px 20px rgba(0,0,0,0.3);">
                     GIFT $<span id="disp-amt">1</span> & GET CODE
                 </button>
             </form>
 
             <div style="font-size: 11px; color: #a0aec0; text-align: left; margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; line-height: 1.5;">
+                <b>Note:</b> Please save your password after payment. We do not provide password recovery.<br><br>
                 <b>Disclaimer:</b> This gift is 100% voluntary. No refunds. Music is provided under CC BY license. I am not responsible for any issues once the code has been displayed.<br><br>
-                <b>Commitment:</b> All gifts are non-obligatory. I have no liability for any issues after you receive the password. (Credit: discoverywithme.github.io).<br><br>
                 <b>Contact:</b> jackwang1368@gmail.com
             </div>
         </div>
@@ -46,11 +46,14 @@
         <div id="pass-zone" style="display: none; padding: 40px 0;">
             <div style="font-size: 80px;">🎊</div>
             <h3 style="color: #68d391;">Thank you so much!</h3>
-            <p style="font-size: 18px;">Your Instant Password is:</p>
-            <div style="font-size: 40px; color: #63b3ed; font-weight: bold; background: rgba(255,255,255,0.05); padding: 30px; border-radius: 20px; border: 3px dashed #63b3ed; letter-spacing: 10px; margin: 25px 0;">
+            <p style="font-size: 18px; color: #f1c40f; font-weight: bold;">PLEASE SAVE THIS PASSWORD:</p>
+            <div style="font-size: clamp(30px, 8vw, 45px); color: #ffffff; font-weight: bold; background: rgba(255,255,255,0.05); padding: 25px; border-radius: 20px; border: 3px dashed #63b3ed; letter-spacing: 5px; margin: 20px 0;">
                 ABCD
             </div>
-            <p style="font-size: 14px; opacity: 0.8;">Copy the code and use it on the download page.</p>
+            <p style="font-size: 14px; opacity: 0.8; line-height: 1.5;">
+                Copy the code above and use it on the Terabox link.<br>
+                <b>Don't forget to save it!</b>
+            </p>
         </div>
 
     </div>
@@ -61,20 +64,18 @@
         document.getElementById('pp-amount').value = amt + ".00";
         document.getElementById('disp-amt').innerText = amt;
         
-        // Reset style các nút
         var btns = document.getElementsByClassName('p-btn');
         for (var i = 0; i < btns.length; i++) {
             btns[i].style.background = "rgba(255,255,255,0.1)";
             btns[i].style.borderColor = "transparent";
         }
-        // Active nút hiện tại
         el.style.background = "#3182ce";
         el.style.borderColor = "#63b3ed";
     }
 
-    // Check URL
     if (window.location.search.indexOf('status=success') > -1) {
         document.getElementById('pay-zone').style.display = 'none';
         document.getElementById('pass-zone').style.display = 'block';
+        window.scrollTo(0,0);
     }
 </script>
