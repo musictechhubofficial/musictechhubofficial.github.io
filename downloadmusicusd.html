@@ -3,75 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Secure Download - Jack Wang Music</title>
+    <title>Support Jack Wang Music</title>
 </head>
-<body style="margin: 0; padding: 0; background: #1a365d; font-family: 'Segoe UI', Arial, sans-serif; color: white;">
+<body style="margin: 0; padding: 0; background: #1a365d;">
 
-<div style="min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px;">
+<div id="main-ui" style="width: 100%; min-height: 100vh; color: #ffffff; font-family: 'Segoe UI', Arial, sans-serif; display: flex; flex-direction: column; align-items: center; padding: 40px 15px; box-sizing: border-box;">
     
-    <div style="max-width: 500px; width: 100%; text-align: center; background: rgba(255,255,255,0.05); padding: 40px; border-radius: 20px; border: 1px solid rgba(99, 179, 237, 0.3);">
+    <div style="max-width: 550px; width: 100%; text-align: center;">
         
-        <div id="pay-zone" style="display: block;">
-            <div style="font-size: 50px; margin-bottom: 10px;">💳</div>
-            <h2 style="color: #63b3ed;">VIP MUSIC ACCESS</h2>
-            <p style="opacity: 0.8; margin-bottom: 30px;">Complete your $1 payment via PayPal to unlock your song.</p>
+        <div style="font-size: 60px; margin-bottom: 10px;">☕</div>
+        <h3 style="color: #63b3ed; font-size: clamp(24px, 5vw, 32px); text-transform: uppercase; margin: 0; letter-spacing: 2px;">Treat me a coffee?</h3>
+        <p style="font-size: 16px; opacity: 0.8; margin: 15px 0 30px 0;">Support my music and get the VIP Download Link</p>
 
-            <form id="paypal-form" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-                <input type="hidden" name="business" value="jackwang1368@gmail.com">
-                <input type="hidden" name="cmd" value="_xclick">
-                <input type="hidden" name="item_name" value="VIP Music Download">
-                <input type="hidden" name="amount" value="1.00">
-                <input type="hidden" name="currency_code" value="USD">
-                
-                <input type="hidden" name="return" id="return-link" value="">
-                
-                <button type="submit" style="background: #0070ba; color: white; border: none; padding: 20px; border-radius: 50px; width: 100%; font-weight: bold; font-size: 18px; cursor: pointer; transition: 0.3s;">
-                    PAY WITH PAYPAL
-                </button>
-            </form>
+        <div style="text-align: left; background: rgba(255, 255, 255, 0.1); border-left: 5px solid #63b3ed; padding: 20px; border-radius: 12px; margin-bottom: 30px; font-size: 14px; line-height: 1.8;">
+            <b style="color: #63b3ed; font-size: 16px;">How it works:</b><br>
+            1️⃣ Choose your gift amount ($1, $3, or $5).<br>
+            2️⃣ Complete payment via <b>PayPal</b>.<br>
+            3️⃣ Click <b>"Return to Merchant"</b> to get your link immediately.
         </div>
 
-        <div id="redirect-zone" style="display: none;">
-            <div style="font-size: 60px;">🚀</div>
-            <h2 style="color: #68d391;">SUCCESSFUL!</h2>
-            <p>Payment verified. Redirecting you to the song now...</p>
-            <div style="width: 40px; height: 40px; border: 4px solid #f3f3f3; border-top: 4px solid #68d391; border-radius: 50%; animation: spin 1s linear infinite; margin: 20px auto;"></div>
+        <div style="display: flex; justify-content: space-between; margin-bottom: 35px; gap: 10px;">
+            <div onclick="setPrice(1, this)" style="background: #3182ce; color: #fff; padding: 15px; border-radius: 15px; cursor: pointer; flex: 1; font-weight: bold; border: 2px solid #63b3ed; font-size: 18px;" class="p-btn">1 ☕</div>
+            <div onclick="setPrice(3, this)" style="background: rgba(255,255,255,0.1); color: #fff; padding: 15px; border-radius: 15px; cursor: pointer; flex: 1; font-weight: bold; border: 2px solid transparent; font-size: 18px;" class="p-btn">3 ☕</div>
+            <div onclick="setPrice(5, this)" style="background: rgba(255,255,255,0.1); color: #fff; padding: 15px; border-radius: 15px; cursor: pointer; flex: 1; font-weight: bold; border: 2px solid transparent; font-size: 18px;" class="p-btn">5 ☕</div>
+        </div>
+
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+            <input type="hidden" name="business" value="jackwang1368@gmail.com">
+            <input type="hidden" name="cmd" value="_xclick">
+            <input type="hidden" name="item_name" value="Voluntary Gift - Jack Wang Music">
+            <input type="hidden" name="amount" id="pp-amount" value="1.00">
+            <input type="hidden" name="currency_code" value="USD">
+            
+            <input type="hidden" name="return" id="pp-return" value="https://discoverywithme.github.io/downloadmusicusd.html">
+
+            <button type="submit" onclick="window.open('https://www.effectivegatecpm.com/v4huzy068?key=d0119603befa4a39f5f4a88cbc7ad840', '_blank')" 
+                style="background: #3182ce; color: #ffffff; border: none; padding: 18px; border-radius: 50px; font-weight: bold; cursor: pointer; width: 100%; font-size: 18px; box-shadow: 0 8px 20px rgba(0,0,0,0.3);">
+                GIFT $<span id="disp-amt">1</span> & DOWNLOAD
+            </button>
+        </form>
+
+        <div style="margin-top: 30px; min-height: 250px;">
+            <script async="async" data-cfasync="false" src="https://pl28656257.effectivegatecpm.com/442052dd5360102cf8626b2c3d145b85/invoke.js"></script>
+            <div id="container-442052dd5360102cf8626b2c3d145b85"></div>
         </div>
 
     </div>
 </div>
 
+<div id="loading-ui" style="display:none; width: 100%; min-height: 100vh; background: #1a365d; color: white; font-family: sans-serif; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+    <div style="font-size: 60px;">🚀</div>
+    <h2>PAYMENT SUCCESSFUL!</h2>
+    <p>Opening your Terabox link...</p>
+</div>
+
 <script>
-    window.onload = function() {
-        const urlParams = new URLSearchParams(window.location.search);
-        const songLink = urlParams.get('id'); // Lấy link bất kỳ sau dấu ?id=
-        const status = urlParams.get('status');
+    // Lấy link nhạc từ URL (?id=...)
+    const urlParams = new URLSearchParams(window.location.search);
+    const songId = urlParams.get('id');
+    const status = urlParams.get('status');
 
-        // 1. CHUẨN BỊ: Nếu có link nhạc, cài đặt nó vào link quay về của PayPal
-        if (songLink) {
-            const currentUrl = window.location.origin + window.location.pathname;
-            // Link return sẽ có dạng: ...html?status=success&id=[LINK_NHẠC_MẪU]
-            const successUrl = currentUrl + "?status=success&id=" + encodeURIComponent(songLink);
-            document.getElementById('return-link').value = successUrl;
+    // Cập nhật link return để PayPal biết đường quay về kèm ID nhạc
+    if (songId) {
+        const returnUrl = window.location.origin + window.location.pathname + "?status=success&id=" + encodeURIComponent(songId);
+        document.getElementById('pp-return').value = returnUrl;
+    }
+
+    // NẾU ĐÃ THANH TOÁN XONG -> VĂNG THẲNG SANG TERABOX
+    if (status === 'success' && songId) {
+        document.getElementById('main-ui').style.display = 'none';
+        document.getElementById('loading-ui').style.display = 'flex';
+        
+        setTimeout(function() {
+            window.location.href = songId;
+        }, 1000);
+    }
+
+    function setPrice(amt, el) {
+        document.getElementById('pp-amount').value = amt + ".00";
+        document.getElementById('disp-amt').innerText = amt;
+        var btns = document.getElementsByClassName('p-btn');
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].style.background = "rgba(255,255,255,0.1)";
+            btns[i].style.borderColor = "transparent";
         }
-
-        // 2. XỬ LÝ: Nếu khách đã thanh toán xong (PayPal dẫn về kèm status=success)
-        if (status === 'success' && songLink) {
-            // Ẩn bảng thanh toán, hiện bảng chuyển hướng
-            document.getElementById('pay-zone').style.display = 'none';
-            document.getElementById('redirect-zone').style.display = 'block';
-
-            // DẪN THẲNG VỀ LINK TERABOX (Lấy từ tham số id)
-            setTimeout(function() {
-                window.location.href = songLink;
-            }, 1500); // Đợi 1.5 giây cho khách thấy chữ Successful rồi văng đi luôn
-        }
+        el.style.background = "#3182ce";
+        el.style.borderColor = "#63b3ed";
     }
 </script>
-
-<style>
-    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-</style>
 
 </body>
 </html>
