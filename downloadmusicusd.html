@@ -19,7 +19,7 @@
             <b style="color: #63b3ed; font-size: 16px;">How it works:</b><br>
             1️⃣ Choose your gift amount ($1, $3, or $5).<br>
             2️⃣ Complete payment via <b>PayPal</b>.<br>
-            3️⃣ Click <b>"Return to Merchant"</b> to get your link immediately.
+            3️⃣ After payment, you will be <b>automatically</b> redirected to the link.
         </div>
 
         <div style="display: flex; justify-content: space-between; margin-bottom: 35px; gap: 10px;">
@@ -28,14 +28,14 @@
             <div onclick="setPrice(5, this)" style="background: rgba(255,255,255,0.1); color: #fff; padding: 15px; border-radius: 15px; cursor: pointer; flex: 1; font-weight: bold; border: 2px solid transparent; font-size: 18px;" class="p-btn">5 ☕</div>
         </div>
 
-        <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" id="paypal-form">
             <input type="hidden" name="business" value="jackwang1368@gmail.com">
             <input type="hidden" name="cmd" value="_xclick">
             <input type="hidden" name="item_name" value="Voluntary Gift - Jack Wang Music">
             <input type="hidden" name="amount" id="pp-amount" value="1.00">
             <input type="hidden" name="currency_code" value="USD">
             
-            <input type="hidden" name="return" id="pp-return" value="https://discoverywithme.github.io/downloadmusicusd.html">
+            <input type="hidden" name="return" id="pp-return" value="">
 
             <button type="submit" onclick="window.open('https://www.effectivegatecpm.com/v4huzy068?key=d0119603befa4a39f5f4a88cbc7ad840', '_blank')" 
                 style="background: #3182ce; color: #ffffff; border: none; padding: 18px; border-radius: 50px; font-weight: bold; cursor: pointer; width: 100%; font-size: 18px; box-shadow: 0 8px 20px rgba(0,0,0,0.3);">
@@ -53,30 +53,41 @@
 
 <div id="loading-ui" style="display:none; width: 100%; min-height: 100vh; background: #1a365d; color: white; font-family: sans-serif; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
     <div style="font-size: 60px;">🚀</div>
-    <h2>PAYMENT SUCCESSFUL!</h2>
-    <p>Opening your Terabox link...</p>
+    <h2 style="color: #68d391;">PAYMENT SUCCESSFUL!</h2>
+    <p>Opening your VIP Terabox link, please wait...</p>
+    <div style="width: 40px; height: 40px; border: 4px solid #f3f3f3; border-top: 4px solid #63b3ed; border-radius: 50%; animation: spin 1s linear infinite; margin-top: 20px;"></div>
 </div>
 
+<style>
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+</style>
+
 <script>
-    // Lấy link nhạc từ URL (?id=...)
+    // 1. Khởi tạo các tham số ngay khi tải trang
     const urlParams = new URLSearchParams(window.location.search);
     const songId = urlParams.get('id');
     const status = urlParams.get('status');
 
-    // Cập nhật link return để PayPal biết đường quay về kèm ID nhạc
+    // 2. Cập nhật link return để PayPal kẹp link nhạc mang về
     if (songId) {
-        const returnUrl = window.location.origin + window.location.pathname + "?status=success&id=" + encodeURIComponent(songId);
-        document.getElementById('pp-return').value = returnUrl;
+        // Tự động xây dựng link quay về: downloadmusicusd.html?status=success&id=...
+        const currentUrl = window.location.origin + window.location.pathname;
+        document.getElementById('pp-return').value = currentUrl + "?status=success&id=" + encodeURIComponent(songId);
+    } else {
+        // Nếu thiếu ID bài hát, báo lỗi nhẹ để ông biết đường sửa link
+        console.error("Missing Song ID in URL!");
     }
 
-    // NẾU ĐÃ THANH TOÁN XONG -> VĂNG THẲNG SANG TERABOX
+    // 3. KIỂM TRA TRẠNG THÁI THANH TOÁN XONG
     if (status === 'success' && songId) {
+        // Ẩn UI cũ, hiện màn hình Tên lửa
         document.getElementById('main-ui').style.display = 'none';
         document.getElementById('loading-ui').style.display = 'flex';
         
+        // VĂNG THẲNG SANG TERABOX SAU 1.2 GIÂY
         setTimeout(function() {
             window.location.href = songId;
-        }, 1000);
+        }, 1200);
     }
 
     function setPrice(amt, el) {
