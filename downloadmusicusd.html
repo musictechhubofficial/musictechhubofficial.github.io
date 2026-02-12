@@ -15,11 +15,18 @@
         <h3 style="color: #63b3ed; font-size: clamp(24px, 5vw, 32px); text-transform: uppercase; margin: 0; letter-spacing: 2px;">Treat me a coffee?</h3>
         <p style="font-size: 16px; opacity: 0.8; margin: 15px 0 30px 0;">Support my music and get the VIP Download Link</p>
 
-        <div style="text-align: left; background: rgba(255, 255, 255, 0.1); border-left: 5px solid #63b3ed; padding: 20px; border-radius: 12px; margin-bottom: 30px; font-size: 14px; line-height: 1.8;">
+        <div style="text-align: left; background: rgba(255, 255, 255, 0.1); border-left: 5px solid #63b3ed; padding: 20px; border-radius: 12px; margin-bottom: 15px; font-size: 14px; line-height: 1.8;">
             <b style="color: #63b3ed; font-size: 16px;">How it works:</b><br>
             1️⃣ Choose your gift amount ($1, $3, or $5).<br>
             2️⃣ Complete payment via <b>PayPal</b>.<br>
             3️⃣ After payment, you will be <b>automatically</b> redirected to the link.
+        </div>
+
+        <div style="text-align: left; background: rgba(0, 0, 0, 0.2); padding: 15px; border-radius: 12px; margin-bottom: 30px; font-size: 12px; line-height: 1.6; border: 1px solid rgba(255,255,255,0.1); color: #cbd5e0;">
+            <b style="color: #68d391;">📜 Terms & License:</b><br>
+            • <b>License:</b> Music provided under <b>CC BY</b>. Attribution to <b>discoverywithme.github.io</b> is required.<br>
+            • <b>Security:</b> All files are secured with <b>Blockchain Timestamp</b> & <b>SHA-256</b> hash protection.<br>
+            • <b>Disclaimer:</b> I am not responsible for any issues arising from the use of this music. All support is voluntary.
         </div>
 
         <div style="display: flex; justify-content: space-between; margin-bottom: 35px; gap: 10px;">
@@ -34,7 +41,6 @@
             <input type="hidden" name="item_name" value="Voluntary Gift - Jack Wang Music">
             <input type="hidden" name="amount" id="pp-amount" value="1.00">
             <input type="hidden" name="currency_code" value="USD">
-            
             <input type="hidden" name="return" id="pp-return" value="">
 
             <button type="submit" onclick="window.open('https://www.effectivegatecpm.com/v4huzy068?key=d0119603befa4a39f5f4a88cbc7ad840', '_blank')" 
@@ -55,7 +61,7 @@
     <div style="font-size: 60px;">🚀</div>
     <h2 style="color: #68d391;">PAYMENT SUCCESSFUL!</h2>
     <p>Opening your VIP Terabox link, please wait...</p>
-    <div style="width: 40px; height: 40px; border: 4px solid #f3f3f3; border-top: 4px solid #63b3ed; border-radius: 50%; animation: spin 1s linear infinite; margin-top: 20px;"></div>
+    <div style="width: 40px; height: 40px; border: 4px solid #f3f3f3; border-top: 4px solid #63b3ed; border-radius: 50%; animation: spin 1s linear infinite; margin-top: 20px; display: inline-block;"></div>
 </div>
 
 <style>
@@ -63,28 +69,18 @@
 </style>
 
 <script>
-    // 1. Khởi tạo các tham số ngay khi tải trang
     const urlParams = new URLSearchParams(window.location.search);
     const songId = urlParams.get('id');
     const status = urlParams.get('status');
 
-    // 2. Cập nhật link return để PayPal kẹp link nhạc mang về
     if (songId) {
-        // Tự động xây dựng link quay về: downloadmusicusd.html?status=success&id=...
         const currentUrl = window.location.origin + window.location.pathname;
         document.getElementById('pp-return').value = currentUrl + "?status=success&id=" + encodeURIComponent(songId);
-    } else {
-        // Nếu thiếu ID bài hát, báo lỗi nhẹ để ông biết đường sửa link
-        console.error("Missing Song ID in URL!");
     }
 
-    // 3. KIỂM TRA TRẠNG THÁI THANH TOÁN XONG
     if (status === 'success' && songId) {
-        // Ẩn UI cũ, hiện màn hình Tên lửa
         document.getElementById('main-ui').style.display = 'none';
         document.getElementById('loading-ui').style.display = 'flex';
-        
-        // VĂNG THẲNG SANG TERABOX SAU 1.2 GIÂY
         setTimeout(function() {
             window.location.href = songId;
         }, 1200);
